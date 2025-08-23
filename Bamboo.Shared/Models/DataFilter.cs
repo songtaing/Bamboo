@@ -1,6 +1,6 @@
-﻿using Bamboo.Core.Interfaces.Filters;
+﻿using Bamboo.Shared.Interfaces.Filters;
 
-namespace Bamboo.Core.Models
+namespace Bamboo.Shared.Models
 {
     public class DataFilter : IDataFilter
     {
@@ -10,6 +10,6 @@ namespace Bamboo.Core.Models
         public int PageIndex { get; set; } = 0;
         public int PageSize { get; set; } = 25;
         public bool? IsAscending { get; set; } = true;
-        public string[]? SortFields { get; set; } = new string[0];
+        public ISortField[]? SortFields { get; set; } = null;
     }
 }

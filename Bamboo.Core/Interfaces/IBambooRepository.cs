@@ -1,6 +1,8 @@
-﻿namespace Bamboo.Core.Interfaces
+﻿using Bamboo.Shared.Interfaces;
+
+namespace Bamboo.Core.Interfaces
 {
-    public interface IBambooRepository<T, KeyType> : IBaseCRUD<T, KeyType>
+    public interface IBambooRepository<T, K> : ICRUD<T, K>
     {
 
     }

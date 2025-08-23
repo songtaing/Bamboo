@@ -1,4 +1,6 @@
-﻿namespace Bamboo.Core.Interfaces.Filters
+﻿using Bamboo.Shared.Interfaces.Filters;
+
+namespace Bamboo.Core.Interfaces.Filters
 {
     public interface IReminderSearchFilter : IDataFilter
     {

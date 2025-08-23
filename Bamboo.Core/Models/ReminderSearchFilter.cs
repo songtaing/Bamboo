@@ -1,4 +1,5 @@
 ﻿using Bamboo.Core.Interfaces.Filters;
+using Bamboo.Shared.Interfaces.Filters;
 
 namespace Bamboo.Core.Models
 {
@@ -12,6 +13,6 @@ namespace Bamboo.Core.Models
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
         public bool? IsAscending { get; set; }
-        public string[]? SortFields { get; set; }
+        public ISortField[]? SortFields { get; set; }
     }
 }

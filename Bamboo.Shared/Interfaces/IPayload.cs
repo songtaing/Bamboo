@@ -1,4 +1,4 @@
-﻿namespace Bamboo.Core.Interfaces.Filters
+﻿namespace Bamboo.Shared.Interfaces.Filters
 {
     public interface IPayload<T>
     {

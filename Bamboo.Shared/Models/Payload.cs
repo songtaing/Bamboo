@@ -1,6 +1,6 @@
-﻿using Bamboo.Core.Interfaces.Filters;
+﻿using Bamboo.Shared.Interfaces.Filters;
 
-namespace Bamboo.Core.Models
+namespace Bamboo.Shared.Models
 {
     public class Payload<T> : IPayload<T>
     {
