@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Api"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Core", "Bamboo.ReminderService.Core\Bamboo.ReminderService.Core.csproj", "{5D62C6CE-BA3F-2105-F903-697803E8D0AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Infrastructure", "BambooReminderService.Infrastructure\Bamboo.ReminderService.Infrastructure.csproj", "{5B308D37-209F-FE08-F552-DA839718E7B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Infrastructure", "Bamboo.ReminderService.Infrastructure\Bamboo.ReminderService.Infrastructure.csproj", "{78FCD2D5-9D47-0F28-9702-99857EFB1DA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{5D62C6CE-BA3F-2105-F903-697803E8D0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D62C6CE-BA3F-2105-F903-697803E8D0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D62C6CE-BA3F-2105-F903-697803E8D0AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B308D37-209F-FE08-F552-DA839718E7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B308D37-209F-FE08-F552-DA839718E7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B308D37-209F-FE08-F552-DA839718E7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B308D37-209F-FE08-F552-DA839718E7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78FCD2D5-9D47-0F28-9702-99857EFB1DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78FCD2D5-9D47-0F28-9702-99857EFB1DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78FCD2D5-9D47-0F28-9702-99857EFB1DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78FCD2D5-9D47-0F28-9702-99857EFB1DA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,7 +68,7 @@ Global
 		{8A806988-A4E0-433E-BBD6-FE7D210E2C05} = {EDCB1498-2766-4BDA-B6DC-3FBAE23AD51E}
 		{F11F7DD2-F947-86A4-D7C8-01AD99681CC3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{5D62C6CE-BA3F-2105-F903-697803E8D0AA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{5B308D37-209F-FE08-F552-DA839718E7B6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{78FCD2D5-9D47-0F28-9702-99857EFB1DA2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACEF0B2B-2EF0-43CC-B5D9-BF613E7288B5}
