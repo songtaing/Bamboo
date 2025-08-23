@@ -1,0 +1,52 @@
+<h2 mat-dialog-content>{{ title }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="reminderForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description" />
+    </mat-form-field>
+  </form>
+  <div class="flex-container-row sliders">
+    <mat-slide-toggle [(ngModel)]="isAllDay">All Day</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isRange">Date Range</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isRecurring">Recurring</mat-slide-toggle>
+  </div>
+  <div class="flex-container-row flex-form">
+    <label for="startDate">{{ startDateLabelText }}</label>
+    <p-datepicker
+      appendTo="body"
+      [(ngModel)]="startDate"
+      inputId="startDate"
+      [showIcon]="true"
+      [showButtonBar]="true"
+      [showTime]="isShowTime"
+      hourFormat="12"
+    />
+  </div>
+  @if(isRange()) {
+  <div class="flex-container-row flex-form">
+    <label for="endDate">End Date</label>
+    <p-datepicker
+      appendTo="body"
+      [(ngModel)]="endDate"
+      inputId="endDate"
+      [showIcon]="true"
+      [showButtonBar]="true"
+      [showTime]="isShowTime"
+      hourFormat="12"
+    />
+  </div>
+  }
+  <section>
+    <h3>Form Value</h3>
+    {{ reminderForm.value | json }}
+  </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button mat-dialog-close>Close</button>
+  <button mat-flat-button (click)="onSave()">Save</button>
+</mat-dialog-actions>

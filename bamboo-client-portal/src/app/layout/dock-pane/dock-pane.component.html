@@ -1,0 +1,5 @@
+<p-dock [model]="config.items" [position]="config.position">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.icon" [alt]="item.label" class="dock-item" />
+  </ng-template>
+</p-dock>

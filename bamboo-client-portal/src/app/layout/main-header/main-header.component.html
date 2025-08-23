@@ -1,0 +1,33 @@
+<mat-toolbar>
+  <button mat-button>
+    <span class="material-symbols-outlined" (click)="onMenuToggle()">
+      menu
+    </span>
+  </button>
+  <h1>Bamboo</h1>
+  <div class="spacer"></div>
+  <button mat-icon-button [matMenuTriggerFor]="paletteMenu">
+    <span class="material-symbols-outlined"> palette </span>
+  </button>
+  <mat-menu #paletteMenu="matMenu">
+    @for(theme of availableThemes; track theme) {
+    <button mat-menu-item (click)="onThemeChange(theme)">
+      <span>{{ theme }}</span>
+    </button>
+    }
+  </mat-menu>
+  <div
+    *ngTemplateOutlet="isLoggedIn ? loggedInTemplate : loggedOutTemplate"
+  ></div>
+</mat-toolbar>
+
+<ng-template #loggedInTemplate>
+  <button mat-button (click)="onLogout()">
+    <span class="material-symbols-outlined"> logout </span>
+  </button>
+</ng-template>
+<ng-template #loggedOutTemplate>
+  <button mat-button (click)="onLogin()">
+    <span class="material-symbols-outlined"> login </span>
+  </button>
+</ng-template>
