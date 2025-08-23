@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Bamboo.Core\Bamboo.ReminderService.Core.csproj" />
     <ProjectReference Include="..\Bamboo.Infrastructure\Bamboo.ReminderService.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bamboo.ReminderService.Core\Bamboo.ReminderService.Core.csproj" />
   </ItemGroup>
 
 </Project>

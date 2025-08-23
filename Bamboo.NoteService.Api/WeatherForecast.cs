@@ -1,4 +1,4 @@
-namespace Bamboo.WebApi
+namespace Bamboo.NoteService.Api
 {
     public class WeatherForecast
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bamboo.WebApi.Controllers
+namespace Bamboo.NoteService.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
