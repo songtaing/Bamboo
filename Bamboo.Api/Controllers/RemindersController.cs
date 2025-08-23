@@ -1,5 +1,5 @@
-﻿using Bamboo.Core.Interfaces;
-using Bamboo.Core.Interfaces.Filters;
+﻿using Bamboo.ReminderService.Core.Interfaces;
+using Bamboo.ReminderService.Core.Interfaces.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bamboo.WebApi.Controllers

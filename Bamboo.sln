@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.Core", "Bamboo.Core\Bamboo.Core.csproj", "{F1F064A3-B4EE-49A8-88FA-31582A105DDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Core", "Bamboo.Core\Bamboo.ReminderService.Core.csproj", "{F1F064A3-B4EE-49A8-88FA-31582A105DDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.Infrastructure", "Bamboo.Infrastructure\Bamboo.Infrastructure.csproj", "{262B3847-9152-4BC3-B304-292EED2D8BDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Infrastructure", "Bamboo.Infrastructure\Bamboo.ReminderService.Infrastructure.csproj", "{262B3847-9152-4BC3-B304-292EED2D8BDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reminder Service", "Reminder Service", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.Api", "Bamboo.Api\Bamboo.Api.csproj", "{B8533B74-0836-455A-BD0C-ADDB6CB912D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bamboo.ReminderService.Api", "Bamboo.Api\Bamboo.ReminderService.Api.csproj", "{B8533B74-0836-455A-BD0C-ADDB6CB912D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9E4E91D8-2D63-4376-A5CD-FA8E324DB0BE}"
 EndProject

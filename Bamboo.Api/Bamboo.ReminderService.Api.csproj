@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bamboo.Core\Bamboo.Core.csproj" />
-    <ProjectReference Include="..\Bamboo.Infrastructure\Bamboo.Infrastructure.csproj" />
+    <ProjectReference Include="..\Bamboo.Core\Bamboo.ReminderService.Core.csproj" />
+    <ProjectReference Include="..\Bamboo.Infrastructure\Bamboo.ReminderService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

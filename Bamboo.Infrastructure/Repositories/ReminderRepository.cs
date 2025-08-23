@@ -1,12 +1,12 @@
-﻿using Bamboo.Core.Interfaces;
-using Bamboo.Core.Interfaces.Filters;
-using Bamboo.Core.Models;
-using Bamboo.Infrastructure.DbContexts;
+﻿
+using Bamboo.ReminderService.Core.Interfaces;
+using Bamboo.ReminderService.Core.Models;
+using Bamboo.ReminderService.Infrastructure.DbContexts;
 using Bamboo.Shared.Interfaces.Filters;
 using Bamboo.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bamboo.Infrastructure.Repositories
+namespace Bamboo.ReminderService.Infrastructure.Repositories
 {
     public class ReminderRepository : IReminderRepository
     {

@@ -1,10 +1,10 @@
-﻿using Bamboo.Core.Interfaces;
-using Bamboo.Core.Interfaces.Filters;
-using Bamboo.Core.Models;
+﻿
+using Bamboo.ReminderService.Core.Interfaces;
+using Bamboo.ReminderService.Core.Models;
 using Bamboo.Shared.Interfaces;
 using Bamboo.Shared.Interfaces.Filters;
 
-namespace Bamboo.Infrastructure.Services
+namespace Bamboo.ReminderService.Infrastructure.Services
 {
     sealed class ReminderService : IService<Reminder, int>
     {

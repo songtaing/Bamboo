@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Bamboo.Core.Models
+namespace Bamboo.ReminderService.Core.Models
 {
     public class Reminder
     {

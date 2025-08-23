@@ -1,7 +1,8 @@
-﻿using Bamboo.Core.Models;
+﻿
+using Bamboo.ReminderService.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bamboo.Infrastructure.DbContexts
+namespace Bamboo.ReminderService.Infrastructure.DbContexts
 {
     public class BambooDbContext : DbContext
     {

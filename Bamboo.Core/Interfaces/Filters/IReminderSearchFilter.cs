@@ -1,6 +1,6 @@
 ﻿using Bamboo.Shared.Interfaces.Filters;
 
-namespace Bamboo.Core.Interfaces.Filters
+namespace Bamboo.ReminderService.Core.Interfaces.Filters
 {
     public interface IReminderSearchFilter : IDataFilter
     {

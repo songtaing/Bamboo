@@ -1,5 +1,5 @@
 
-namespace Bamboo.Api
+namespace Bamboo.ReminderService.Api
 {
     public class Program
     {

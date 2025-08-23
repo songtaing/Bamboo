@@ -1,7 +1,7 @@
-﻿using Bamboo.Core.Interfaces.Filters;
+﻿using Bamboo.ReminderService.Core.Interfaces.Filters;
 using Bamboo.Shared.Interfaces.Filters;
 
-namespace Bamboo.Core.Models
+namespace Bamboo.ReminderService.Core.Models
 {
     public class ReminderSearchFilter : IReminderSearchFilter, IDataFilter
     {
