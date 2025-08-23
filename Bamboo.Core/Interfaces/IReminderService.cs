@@ -1,8 +1,9 @@
 ﻿using Bamboo.Core.Models;
+using Bamboo.Shared.Interfaces;
 
 namespace Bamboo.Core.Interfaces
 {
-    public interface IReminderService : IBambooService<Reminder, int>
+    public interface IReminderService : IService<Reminder, int>
     {
     }
 }
