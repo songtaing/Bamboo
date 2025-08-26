@@ -1,4 +1,4 @@
-﻿namespace Bamboo.Shared.Interfaces.Filters
+﻿namespace Bamboo.Shared.Interfaces
 {
     public interface ISortField
     {

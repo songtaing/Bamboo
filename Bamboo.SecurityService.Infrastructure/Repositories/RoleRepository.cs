@@ -1,11 +1,7 @@
 ﻿using Bamboo.SecurityService.Core.Interfaces;
 using Bamboo.SecurityService.Core.Models;
-using Bamboo.Shared.Interfaces.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Bamboo.Shared.Interfaces;
+
 
 namespace Bamboo.SecurityService.Infrastructure.Repositories
 {

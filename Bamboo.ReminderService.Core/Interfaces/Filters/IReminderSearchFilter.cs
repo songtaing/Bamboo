@@ -1,4 +1,4 @@
-﻿using Bamboo.Shared.Interfaces.Filters;
+﻿using Bamboo.Shared.Interfaces;
 
 namespace Bamboo.ReminderService.Core.Interfaces.Filters
 {

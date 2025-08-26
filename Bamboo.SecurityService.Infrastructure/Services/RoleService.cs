@@ -1,22 +1,18 @@
-﻿using Bamboo.SecurityService.Core.Interfaces;
+﻿using Bamboo.SecurityService.Core.DTOs;
+using Bamboo.SecurityService.Core.Interfaces;
 using Bamboo.SecurityService.Core.Models;
-using Bamboo.Shared.Interfaces.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Bamboo.Shared.Interfaces;
 
 namespace Bamboo.SecurityService.Infrastructure.Services
 {
     public class RoleService : IRoleService
     {
-        public Task<Role?> AddAsync(Role item)
+        public Task<RoleDto?> AddAsync(RoleDto item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> AddRangeAsync(IList<Role> items)
+        public Task<bool> AddRangeAsync(IList<RoleDto> items)
         {
             throw new NotImplementedException();
         }
@@ -26,27 +22,27 @@ namespace Bamboo.SecurityService.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<Role[]> GetAllAsync()
+        public Task<RoleDto[]> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Role?> GetByIdAsync(Guid id)
+        public Task<RoleDto?> GetByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IPayload<Role>> SearchAsync(IDataFilter filter)
+        public Task<IPayload<RoleDto>> SearchAsync(IDataFilter filter)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Role?> UpdateAsync(Guid id, Role item)
+        public Task<RoleDto?> UpdateAsync(Guid id, RoleDto item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateRangeAsync(IList<Role> items)
+        public Task<bool> UpdateRangeAsync(IList<RoleDto> items)
         {
             throw new NotImplementedException();
         }

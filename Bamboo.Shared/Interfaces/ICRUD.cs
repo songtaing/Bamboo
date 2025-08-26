@@ -1,4 +1,5 @@
 ﻿
+using Bamboo.Shared.Interfaces;
 using Bamboo.Shared.Interfaces.Filters;
 
 namespace Bamboo.Shared.Interfaces

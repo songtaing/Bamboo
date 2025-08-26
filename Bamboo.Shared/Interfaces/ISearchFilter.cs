@@ -1,9 +1,9 @@
-﻿namespace Bamboo.Shared.Interfaces.Filters
+﻿namespace Bamboo.Shared.Interfaces
 {
     public interface ISearchFilter
     {
-        public string? SearchTerm { get; set; }
-        public bool? MatchCase { get; set; }
-        public bool? MatchWholeWord { get; set; }
+        public string SearchTerm { get; set; }
+        public bool MatchCase { get; set; }
+        public bool MatchWholeWord { get; set; }
     }
 }

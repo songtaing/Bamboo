@@ -2,7 +2,7 @@
 using Bamboo.ReminderService.Core.Interfaces;
 using Bamboo.ReminderService.Core.Models;
 using Bamboo.ReminderService.Infrastructure.DbContexts;
-using Bamboo.Shared.Interfaces.Filters;
+using Bamboo.Shared.Interfaces;
 using Bamboo.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 

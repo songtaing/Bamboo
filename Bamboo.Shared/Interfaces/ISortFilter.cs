@@ -1,8 +1,7 @@
-﻿namespace Bamboo.Shared.Interfaces.Filters
+﻿namespace Bamboo.Shared.Interfaces
 {
     public interface ISortFilter
     {
-        public bool? IsAscending { get; set; }
         public ISortField[]? SortFields { get; set; }
     }
 }

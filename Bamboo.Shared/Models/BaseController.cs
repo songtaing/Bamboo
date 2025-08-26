@@ -14,7 +14,7 @@ namespace Bamboo.Shared.Models
     public abstract class BaseController<T, K>(ILogger logger, IService<T, K> service) : ControllerBase
     {
         [HttpPost("search")]
-        public virtual async Task<IActionResult> SearchAsync([FromBody] DataFilter filter)
+        public virtual async Task<IActionResult> SearchAsync([FromBody] IDataFilter filter)
         {
             try
             {
@@ -65,14 +65,14 @@ namespace Bamboo.Shared.Models
 #endif
 
         [HttpPost]
-        public virtual async Task<IActionResult> AddAsync([FromBody] T entity)
+        public virtual async Task<IActionResult> AddAsync([FromBody] T item)
         {
             try
             {
-                if (entity == null)
+                if (item == null)
                     return BadRequest();
 
-                return Ok(await service.AddAsync(entity));
+                return Ok(await service.AddAsync(item));
             }
             catch (Exception ex)
             {
@@ -82,17 +82,66 @@ namespace Bamboo.Shared.Models
         }
 
         [HttpPost("add-range")]
-        public virtual async Task<IActionResult> AddRangeAsync([FromBody] IList<T> entities)
+        public virtual async Task<IActionResult> AddRangeAsync([FromBody] IList<T> items)
         {
             try
             {
-                if(entities == null || !entities.Any()) return BadRequest();
+                if(items == null || !items.Any()) return BadRequest();
 
-                return Ok(await service.AddRangeAsync(entities));
+                return Ok(await service.AddRangeAsync(items));
             }
             catch(Exception ex)
             {
                 logger.LogError(ex, "AddRangeAsync");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public virtual async Task<IActionResult> UpdateAsync(K id, [FromBody] T item)
+        {
+            try
+            {
+                if (item == null) return BadRequest();
+
+                return Ok(await service.UpdateAsync(id, item));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "UpdateAsync");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public virtual async Task<IActionResult> UpdateRangeAsync([FromBody] IList<T> items)
+        {
+            try
+            {
+                if (items == null || !items.Any()) return BadRequest();
+
+                return Ok(await service.UpdateRangeAsync(items));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "UpdateRangeAsync");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public virtual async Task<IActionResult> DeleteAsync(K id)
+        {
+            try
+            {
+                if (id == null)
+                    return BadRequest();
+
+                return Ok(await service.DeleteAsync(id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "DeleteAsync");
                 return BadRequest(ex.Message);
             }
         }
