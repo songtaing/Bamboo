@@ -6,43 +6,46 @@ using Bamboo.Shared.Interfaces.Filters;
 
 namespace Bamboo.ReminderService.Infrastructure.Services
 {
-    sealed class ReminderService : IService<Reminder, int>
+    sealed class ReminderService(IReminderRepository reminderRepository) : IService<Reminder, int>
     {
-        private IReminderRepository _repo;
-
-        public ReminderService(IReminderRepository reminderRepository)
-        {
-            _repo = reminderRepository;
-        }
-
         public async Task<Reminder?> AddAsync(Reminder item)
         {
-            return await _repo.AddAsync(item);
+            return await reminderRepository.AddAsync(item);
+        }
+
+        public Task<bool> AddRangeAsync(IList<Reminder> items)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            return await _repo.DeleteAsync(id);
+            return await reminderRepository.DeleteAsync(id);
         }
 
         public async Task<Reminder[]> GetAllAsync()
         {
-            return await _repo.GetAllAsync();
+            return await reminderRepository.GetAllAsync();
         }
 
         public async Task<Reminder?> GetByIdAsync(int id)
         {
-            return await _repo.GetByIdAsync(id);
+            return await reminderRepository.GetByIdAsync(id);
         }
 
         public async Task<IPayload<Reminder>> SearchAsync(IDataFilter filter)
         {
-            return await _repo.SearchAsync(filter);
+            return await reminderRepository.SearchAsync(filter);
         }
 
         public async Task<Reminder?> UpdateAsync(int id, Reminder item)
         {
-            return await _repo.UpdateAsync(id, item);
+            return await reminderRepository.UpdateAsync(id, item);
+        }
+
+        public Task<bool> UpdateRangeAsync(IList<Reminder> items)
+        {
+            throw new NotImplementedException();
         }
     }
 }

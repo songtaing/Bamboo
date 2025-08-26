@@ -8,30 +8,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bamboo.ReminderService.Infrastructure.Repositories
 {
-    public class ReminderRepository : IReminderRepository
+    public class ReminderRepository(BambooDbContext dbContext) : IReminderRepository
     {
-        private BambooDbContext _dbContext;
-
-        public ReminderRepository(BambooDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
         public async Task<Reminder?> AddAsync(Reminder item)
         {
-            await _dbContext.Reminders.AddAsync(item);
-            await _dbContext.SaveChangesAsync();
+            await dbContext.Reminders.AddAsync(item);
+            await dbContext.SaveChangesAsync();
 
             return item;
         }
 
+        public Task<bool> AddRangeAsync(IList<Reminder> items)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> DeleteAsync(int id)
         {
-            Reminder? record = await _dbContext.Reminders.FindAsync(id);
+            Reminder? record = await dbContext.Reminders.FindAsync(id);
             if (record != null)
             {
-                _dbContext.Reminders.Remove(record);
-                await _dbContext.SaveChangesAsync();
+                dbContext.Reminders.Remove(record);
+                await dbContext.SaveChangesAsync();
 
                 return true;
             }
@@ -41,17 +39,17 @@ namespace Bamboo.ReminderService.Infrastructure.Repositories
 
         public async Task<Reminder[]> GetAllAsync()
         {
-            return await _dbContext.Reminders.ToArrayAsync();
+            return await dbContext.Reminders.ToArrayAsync();
         }
 
         public async Task<Reminder?> GetByIdAsync(int id)
         {
-            return await _dbContext.Reminders.FirstOrDefaultAsync(x => x.Id == id);
+            return await dbContext.Reminders.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<IPayload<Reminder>> SearchAsync(IDataFilter filter)
         {
-            var query = _dbContext.Reminders.AsQueryable();
+            var query = dbContext.Reminders.AsQueryable();
             int skip = (filter.PageIndex * filter.PageSize) + 1;
 
             var results = await query.Select(x => new
@@ -70,17 +68,22 @@ namespace Bamboo.ReminderService.Infrastructure.Repositories
 
         public async Task<Reminder?> UpdateAsync(int id, Reminder item)
         {
-            Reminder? record = await _dbContext.Reminders.FindAsync(id);
+            Reminder? record = await dbContext.Reminders.FindAsync(id);
 
             if (record != null)
             {
                 record.Id = item.Id;
                 // todo: update fields
-                await _dbContext.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
                 return record;
             }
 
             return null;
+        }
+
+        public Task<bool> UpdateRangeAsync(IList<Reminder> items)
+        {
+            throw new NotImplementedException();
         }
     }
 }

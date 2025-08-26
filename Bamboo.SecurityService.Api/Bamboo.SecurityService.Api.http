@@ -1,0 +1,6 @@
+@Bamboo.SecurityService.Api_HostAddress = http://localhost:5102
+
+GET {{Bamboo.SecurityService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

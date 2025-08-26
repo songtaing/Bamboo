@@ -2,7 +2,7 @@
 {
     public interface ISortField
     {
-        public string SortField { get; set; }
+        public string FieldName { get; set; }
         public bool IsAscending {  get; set; }
     }
 }
