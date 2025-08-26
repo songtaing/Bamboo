@@ -15,7 +15,7 @@ namespace Bamboo.Shared.Models
             this.TotalCount = totalCount;
         }
 
-        public T[] Data { get; set; } = new T[0];
+        public T[] Data { get; set; } = [];
         public int TotalCount { get; set; }
     }
 }
