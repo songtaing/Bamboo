@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Bamboo.SecurityService.Core\Bamboo.SecurityService.Core.csproj" />
     <ProjectReference Include="..\Bamboo.SecurityService.Infrastructure\Bamboo.SecurityService.Infrastructure.csproj" />
     <ProjectReference Include="..\Bamboo.Shared\Bamboo.Shared.csproj" />
