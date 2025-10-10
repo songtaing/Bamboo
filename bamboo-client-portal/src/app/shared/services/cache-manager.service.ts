@@ -1,9 +1,9 @@
-import { Injectable, afterNextRender, afterRender } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BaseComponent } from '../classes/base-component.class';
 import { ICacheService } from '../interfaces/cache-service.interface';
-import { LogService } from './log.service';
 import { CacheLocalStorageService } from './cache-local-storage.service';
 import { CacheSessionStorageService } from './cache-session-storage.service';
+import { LogService } from './log.service';
 
 @Injectable({
   providedIn: 'root',

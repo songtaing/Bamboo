@@ -33,7 +33,6 @@ export class RemindersDashboardComponent extends BaseComponent {
 
     reminderService.getAll().subscribe((reminders) => {
       this.reminders = reminders;
-      console.log(reminders);
       this.processReminders(reminders);
     });
   }
@@ -74,7 +73,6 @@ export class RemindersDashboardComponent extends BaseComponent {
         reminder.schedule.isRecurring &&
         reminder.schedule.startDate.getDate() < new Date().getDate()
       ) {
-        console.log('reminder', reminder);
         let nextDate = new Date(reminder.schedule.startDate);
         while (nextDate < new Date()) {
           switch (reminder.schedule.frequency) {
@@ -117,10 +115,7 @@ export class RemindersDashboardComponent extends BaseComponent {
               throw new Error('Invalid frequency unit');
           }
 
-          console.log('nextDate', nextDate, nextDate.getDate(), reminder);
-
           if (nextDate.getDate() === new Date().getDate()) {
-            console.log('match!');
             foundReminders.push(reminder);
           }
         }

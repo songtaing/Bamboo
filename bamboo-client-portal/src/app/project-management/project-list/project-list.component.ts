@@ -38,7 +38,6 @@ export class ProjectListComponent extends BaseComponent {
     this.logTraceFrame();
 
     this.pmService.getAll().subscribe((x) => {
-      console.log('x', x);
       this.rowData$.next(x);
     });
   }
