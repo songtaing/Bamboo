@@ -88,7 +88,7 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
     this.logTraceFrame();
 
     this.isAllDay.subscribe((x) => {
-      this.isShowTime = !this.isAllDay;
+      this.isShowTime = !this.isAllDay();
     });
   }
 
@@ -109,11 +109,20 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
 
     let valid: boolean = this.reminderForm.valid && this.startDate != undefined;
 
-    if (this.isRange() && this.startDate && this.endDate) {
-      valid = valid && this.startDate <= this.endDate;
+    if (!valid) {
+      this.toastr.show('Please fill in all required fields');
+      return false;
     }
 
-    return valid;
+    if (this.isRange() && this.startDate && this.endDate) {
+      valid = valid && this.startDate <= this.endDate;
+      if (!valid) {
+        this.toastr.show('Start date has to be before the end date');
+        return false;
+      }
+    }
+
+    return true;
   }
 
   onSave(): void {

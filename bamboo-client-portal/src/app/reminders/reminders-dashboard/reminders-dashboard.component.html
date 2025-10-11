@@ -1,14 +1,21 @@
-<div>
+<div class="main-container">
   <mat-toolbar>
     <span>Reminder Dashboard</span>
     <div class="spacer"></div>
 
-    <button mat-flat-button (click)="onAdd()">
+    <button
+      mat-flat-button
+      (click)="onAdd()"
+      matTooltip="Add Reminder"
+      aria-label="Add Reminder"
+    >
       <span class="material-symbols-outlined btn"> calendar_add_on </span>
     </button>
   </mat-toolbar>
 
-  <mat-card class="today-card" appearance="outlined">
-    <mat-card-content> Today: {{ todayReminders.length }} </mat-card-content>
-  </mat-card>
+  <span>Today: {{ todayReminders.length }}</span>
+  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
+    <mat-tab label="Today's Reminders">Today's Reminders</mat-tab>
+    <mat-tab label="Calendar">Calendar</mat-tab>
+  </mat-tab-group>
 </div>

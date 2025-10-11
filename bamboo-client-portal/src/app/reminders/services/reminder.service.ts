@@ -78,7 +78,7 @@ export class ReminderService
 
     // NOTE: static schedule
     const staticStartDate = new Date();
-    staticStartDate.setFullYear(2024, 7, 1);
+    staticStartDate.setFullYear(2025, 10, 11);
 
     return {
       startDate: staticStartDate,

@@ -1,21 +1,28 @@
 import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { DurationUnits } from '../../shared/enums/duration-units.enum';
-import { LogService } from '../../shared/services/log.service';
-import { IReminder } from '../interfaces/reminder.interface';
-import { ReminderService } from '../services/reminder.service';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
-import { ReminderModalComponent } from '../reminder-modal/reminder-modal.component';
-import { IReminderModalData } from '../interfaces/reminder-modal-data.interface';
 import { FormModes } from '../../shared/enums/form-modes.enum';
-
+import { LogService } from '../../shared/services/log.service';
+import { IReminderModalData } from '../interfaces/reminder-modal-data.interface';
+import { IReminder } from '../interfaces/reminder.interface';
+import { ReminderModalComponent } from '../reminder-modal/reminder-modal.component';
+import { ReminderService } from '../services/reminder.service';
+import { MatTabsModule } from '@angular/material/tabs';
 @Component({
   selector: 'app-reminders-dashboard',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, MatToolbarModule],
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTabsModule,
+  ],
   templateUrl: './reminders-dashboard.component.html',
   styleUrl: './reminders-dashboard.component.scss',
 })
@@ -32,6 +39,7 @@ export class RemindersDashboardComponent extends BaseComponent {
     this.logTraceFrame();
 
     reminderService.getAll().subscribe((reminders) => {
+      console.log('reminders', reminders);
       this.reminders = reminders;
       this.processReminders(reminders);
     });
@@ -134,7 +142,6 @@ export class RemindersDashboardComponent extends BaseComponent {
 
     const dialogRef = this.dialog.open(ReminderModalComponent, {
       data: modalData,
-      height: '95vh',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

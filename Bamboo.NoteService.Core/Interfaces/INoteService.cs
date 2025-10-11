@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bamboo.NoteService.Core.Interfaces
 {
-    public interface INoteService: IService<Note, Guid>
+    public interface INoteService: IService<NoteDto, Guid>
     {
     }
 }
