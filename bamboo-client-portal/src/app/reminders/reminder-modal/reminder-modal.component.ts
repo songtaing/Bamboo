@@ -27,6 +27,9 @@ import { LogService } from '../../shared/services/log.service';
 import { IReminderModalData } from '../interfaces/reminder-modal-data.interface';
 import { IReminder } from '../interfaces/reminder.interface';
 import { ReminderService } from '../services/reminder.service';
+import { MatSelectModule } from '@angular/material/select';
+import { ReminderCategoryService } from '../services/reminder-category.service';
+import { IReminderCategory } from '../interfaces/reminder-category.interface';
 
 @Component({
   selector: 'app-reminder-modal',
@@ -44,6 +47,7 @@ import { ReminderService } from '../services/reminder.service';
     FormsModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatSelectModule,
   ],
   templateUrl: './reminder-modal.component.html',
   styleUrl: './reminder-modal.component.scss',
@@ -52,6 +56,7 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   readonly data: IReminderModalData = inject(MAT_DIALOG_DATA);
   readonly dialogRef = inject(MatDialogRef<ReminderModalComponent>);
   readonly reminderService = inject(ReminderService);
+  readonly reminderCategoryService = inject(ReminderCategoryService);
   readonly toastr = inject(ToastrService);
 
   isAllDay = model<boolean>(false);
@@ -62,16 +67,19 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   startDateLabelText: string = 'Date';
   title!: string;
   isShowTime: boolean = true;
+  reminderCategories: IReminderCategory[] = [];
 
   reminderForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl(''),
+    category: new FormControl(false),
   });
 
   constructor(logService: LogService) {
     super(logService);
     this.logTraceFrame();
 
+    this.refreshCategories();
     effect(() => {
       this.startDateLabelText = this.isRange() ? 'Start Date' : 'Date';
     });
@@ -89,6 +97,16 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
 
     this.isAllDay.subscribe((x) => {
       this.isShowTime = !this.isAllDay();
+    });
+  }
+
+  refreshCategories(): void {
+    this.logTraceFrame();
+
+    this.reminderCategoryService.getAll().subscribe((x) => {
+      this.reminderCategories = x.sort((a, b) => {
+        return a.categoryName < b.categoryName ? 0 : 1;
+      });
     });
   }
 
@@ -143,6 +161,10 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
       reminderId: '',
       title: '',
       schedule: schedule,
+      category: {
+        categoryId: '',
+        categoryName: 'Other',
+      },
     };
 
     if (this.data.reminder) {

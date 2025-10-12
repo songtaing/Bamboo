@@ -9,6 +9,16 @@
       <mat-label>Description</mat-label>
       <input matInput type="text" formControlName="description" />
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        @for(category of reminderCategories; track category) {
+        <mat-option [value]="category.categoryId">{{
+          category.categoryName
+        }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
   </form>
   <div class="flex-container-row sliders">
     <mat-slide-toggle [(ngModel)]="isAllDay">All Day</mat-slide-toggle>
