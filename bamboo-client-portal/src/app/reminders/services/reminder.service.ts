@@ -53,10 +53,7 @@ export class ReminderService
         reminderId: this._generateGUID(),
         title: `Mock Reminder ${x}`,
         schedule: this._generateSchedule(),
-        category: {
-          categoryId: this._generateGUID(),
-          categoryName: 'Other',
-        },
+        categoryId: '1',
       });
     }
   }

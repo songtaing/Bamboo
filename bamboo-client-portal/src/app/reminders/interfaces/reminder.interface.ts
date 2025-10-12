@@ -6,5 +6,5 @@ export interface IReminder {
   title: string;
   description?: string;
   schedule: ISchedule;
-  category: IReminderCategory;
+  categoryId: string;
 }

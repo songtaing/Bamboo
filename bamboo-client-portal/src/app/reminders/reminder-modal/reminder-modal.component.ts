@@ -72,7 +72,7 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   reminderForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl(''),
-    category: new FormControl(false),
+    category: new FormControl('1'),
   });
 
   constructor(logService: LogService) {
@@ -150,21 +150,13 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
       return;
     }
 
-    let schedule: ISchedule = {
+    let reminder = this.reminderForm.value as IReminder;
+
+    reminder.schedule = {
       startDate: this.startDate as Date,
       endDate: this.endDate,
       isAllDay: this.isAllDay(),
       isRecurring: this.isRecurring(),
-    };
-
-    let reminder: IReminder = {
-      reminderId: '',
-      title: '',
-      schedule: schedule,
-      category: {
-        categoryId: '',
-        categoryName: 'Other',
-      },
     };
 
     if (this.data.reminder) {

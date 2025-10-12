@@ -1,6 +1,6 @@
 <h2 mat-dialog-content>{{ title }}</h2>
 <mat-dialog-content>
-  <form [formGroup]="reminderForm">
+  <form [formGroup]="reminderForm" (ngSubmit)="onSave()">
     <mat-form-field>
       <mat-label>Title</mat-label>
       <input matInput type="text" formControlName="title" />
