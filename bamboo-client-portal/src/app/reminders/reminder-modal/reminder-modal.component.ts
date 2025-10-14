@@ -17,19 +17,19 @@ import {
 } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastrService } from 'ngx-toastr';
 import { DatePickerModule } from 'primeng/datepicker';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { FormModes } from '../../shared/enums/form-modes.enum';
-import { ISchedule } from '../../shared/interfaces/schedule.interface';
 import { LogService } from '../../shared/services/log.service';
+import { IReminderCategory } from '../interfaces/reminder-category.interface';
 import { IReminderModalData } from '../interfaces/reminder-modal-data.interface';
 import { IReminder } from '../interfaces/reminder.interface';
-import { ReminderService } from '../services/reminder.service';
-import { MatSelectModule } from '@angular/material/select';
 import { ReminderCategoryService } from '../services/reminder-category.service';
-import { IReminderCategory } from '../interfaces/reminder-category.interface';
+import { ReminderService } from '../services/reminder.service';
+import { DurationUnits } from '../../shared/enums/duration-units.enum';
 
 @Component({
   selector: 'app-reminder-modal',
@@ -58,6 +58,12 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   readonly reminderService = inject(ReminderService);
   readonly reminderCategoryService = inject(ReminderCategoryService);
   readonly toastr = inject(ToastrService);
+  readonly durationUnits = Object.entries(DurationUnits)
+    .filter(([key, value]) => isNaN(Number(key)))
+    .map(([key, value]) => ({
+      key,
+      value,
+    }));
 
   isAllDay = model<boolean>(false);
   isRecurring = model<boolean>(false);

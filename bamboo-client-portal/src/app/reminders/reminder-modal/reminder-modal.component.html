@@ -50,6 +50,21 @@
       hourFormat="12"
     />
   </div>
+  } @if(isRecurring()) {
+  <div class="flex-container-row flex-form recurring-container">
+    <mat-form-field>
+      <mat-label>Frequency</mat-label>
+      <input matInput placeholder="Frequency" value="1" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Recurring Type</mat-label>
+      <mat-select>
+        @for(durUnit of durationUnits; track durUnit) {
+        <mat-option [value]="durUnit.value">{{ durUnit.key }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
   }
   <section>
     <h3>Form Value</h3>
