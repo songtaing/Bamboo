@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bamboo.Shared.Models;
 
 namespace Bamboo.NoteService.Core.Models
 {
-    public class NoteDto
+    public class NoteDto : BaseEntity
     {
         public Guid Id { get; set; }
     }

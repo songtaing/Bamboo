@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bamboo.Shared.Models;
 
 namespace Bamboo.SecurityService.Core.Models
 {
-    public class Role
+    public class Role : BaseEntity
     {
         public Guid RoleId { get; set; }
         public string RoleName { get; set; } = string.Empty;

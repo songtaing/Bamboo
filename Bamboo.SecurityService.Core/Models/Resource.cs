@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bamboo.Shared.Models;
 
 namespace Bamboo.SecurityService.Core.Models
 {
-    public class Resource
+    public class Resource : BaseEntity
     {
         public Guid ResourceId { get; set; }
     }

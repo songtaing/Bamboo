@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bamboo.Shared.Models;
 
 namespace Bamboo.SecurityService.Core.DTOs
 {
-    public class UserDto
+    public class UserDto : BaseEntity
     {
+
     }
 }

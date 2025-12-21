@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bamboo.Shared.Models;
 
 namespace Bamboo.SecurityService.Core.DTOs
 {
-    public class ResourceDto
+    public class ResourceDto : BaseEntity
     {
         public Guid ResourceId { get; set; }
     }
