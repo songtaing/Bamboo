@@ -29,6 +29,12 @@
   "files": [],
   "references": [
     {
+      "path": "./projects/bamboo-portal/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/bamboo-portal/tsconfig.spec.json"
+    },
+    {
       "path": "./projects/bamboo-shared-lib/tsconfig.lib.json"
     },
     {
