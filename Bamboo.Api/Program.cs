@@ -28,16 +28,11 @@ public class Program
         {
             app.MapOpenApi();
             app.MapScalarApiReference();
-
         }
 
         app.UseHttpsRedirection();
-
         app.UseAuthorization();
-
-
         app.MapControllers();
-
         app.Run();
     }
 }

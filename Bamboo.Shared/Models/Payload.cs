@@ -9,13 +9,13 @@ namespace Bamboo.Shared.Models
 
         }
 
-        public Payload(T[] data, int totalCount)
+        public Payload(T[] results, int totalCount)
         {
-            this.Data = data;
+            this.Results = results;
             this.TotalCount = totalCount;
         }
 
-        public T[] Data { get; set; } = [];
+        public T[] Results { get; set; } = [];
         public int TotalCount { get; set; }
     }
 }

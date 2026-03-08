@@ -2,7 +2,7 @@
 {
     public interface IPayload<T>
     {
-        public T[] Data { get; set; }
+        public T[] Results { get; set; }
         public int TotalCount { get; set; }
 
     }

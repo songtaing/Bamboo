@@ -4,5 +4,6 @@ namespace Bamboo.Shared.Interfaces
 {
     public interface IDataFilter : ISearchFilter, IPageFilter, ISortFilter
     {
+
     }
 }
