@@ -1,0 +1,15 @@
+<div class="container modal center">
+  @if(config.type === indicatorTypes.Spinner) {
+  <mat-spinner
+    [mode]="config.mode"
+    [value]="config.progressValue"
+  ></mat-spinner>
+  <span>{{ config.displayText }}</span>
+  } @else {
+  <span>{{ config.displayText }}</span>
+  <mat-progress-bar
+    [mode]="config.mode"
+    [value]="config.progressValue"
+  ></mat-progress-bar>
+  }
+</div>

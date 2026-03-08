@@ -1,17 +1,21 @@
-import { Injectable } from '@angular/core';
-import { ICacheService } from '../interfaces/cache-service.interface';
+import { Inject, Injectable } from '@angular/core';
 import { BaseComponent } from '../classes/base-component.class';
+import {
+  IBambooSharedLibConfig,
+  LIB_CONFIG,
+} from '../interfaces/bamboo-shared-lib-config.interface';
+import { ICacheService } from '../interfaces/cache-service.interface';
 import { LogService } from './log.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CacheLocalStorageService
-  extends BaseComponent
-  implements ICacheService
-{
-  constructor(logService: LogService) {
-    super(logService);
+export class CacheLocalStorageService extends BaseComponent implements ICacheService {
+  constructor(
+    @Inject(LIB_CONFIG) protected override LIB_CONFIG: IBambooSharedLibConfig,
+    logService: LogService
+  ) {
+    super(LIB_CONFIG, logService);
     this.logTraceFrame();
   }
 

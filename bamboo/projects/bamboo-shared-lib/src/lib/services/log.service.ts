@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { LogLevels } from '../enums/log-level.enum';
 import { ILogService } from '../interfaces/log-service.interface';
 import { Subject } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import {
+  LIB_CONFIG,
+  IBambooSharedLibConfig,
+} from '../interfaces/bamboo-shared-lib-config.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LogService implements ILogService {
-  constructor() {}
+  constructor(@Inject(LIB_CONFIG) private LIB_CONFIG: IBambooSharedLibConfig) {}
 
   error(...args: any[]): void {
     this.entry(args, LogLevels.error);
@@ -34,12 +37,10 @@ export class LogService implements ILogService {
     let log$ = new Subject<any>();
 
     if (
-      environment.logLevel != LogLevels.none &&
-      environment.logLevel >= logLevel
+      this.LIB_CONFIG.environment.logLevel != LogLevels.none &&
+      this.LIB_CONFIG.environment.logLevel >= logLevel
     ) {
-      console.log(
-        `[${LogLevels[logLevel].toUpperCase()}]: ${JSON.stringify(args)}`
-      );
+      console.log(`[${LogLevels[logLevel].toUpperCase()}]: ${JSON.stringify(args)}`);
     }
   }
 }

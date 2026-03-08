@@ -1,9 +1,8 @@
 ﻿using Bamboo.Shared.Interfaces;
-using Bamboo.Shared.Interfaces.Filters;
 
 namespace Bamboo.Shared.Models
 {
-    public class DataFilter : IDataFilter
+    public class DataFilter<T> : IDataFilter
     {
         public string SearchTerm { get; set; } = string.Empty;
         public bool MatchCase { get; set; } = false;
@@ -12,5 +11,6 @@ namespace Bamboo.Shared.Models
         public int PageSize { get; set; } = 25;
         public bool? IsAscending { get; set; } = true;
         public ISortField[]? SortFields { get; set; } = null;
+        public T? CustomFilters { get; set; }
     }
 }

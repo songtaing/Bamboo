@@ -1,10 +1,13 @@
-
-import { HostBinding, inject, Injectable, DOCUMENT } from '@angular/core';
+import { HostBinding, inject, Injectable, DOCUMENT, Inject } from '@angular/core';
 import { BaseRoot } from '../classes/base-root.class';
 import { BambooThemes } from '../enums/bamboo-themes.enum';
 import { CacheManagerService } from './cache-manager.service';
 import { LogService } from './log.service';
 import { CacheKeys } from '../enums/cache-keys.enum';
+import {
+  IBambooSharedLibConfig,
+  LIB_CONFIG,
+} from '../interfaces/bamboo-shared-lib-config.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +19,11 @@ export class ThemeService extends BaseRoot {
   readonly document = inject(DOCUMENT);
 
   constructor(
+    @Inject(LIB_CONFIG) protected override LIB_CONFIG: IBambooSharedLibConfig,
     logService: LogService,
     readonly cacheService: CacheManagerService
   ) {
-    super(logService);
+    super(LIB_CONFIG, logService);
     this.logTraceFrame();
   }
 
@@ -28,9 +32,7 @@ export class ThemeService extends BaseRoot {
 
     this.currentClass = `${isDarkTheme ? 'dark' : 'light'}-theme`;
     const head = this.document.getElementsByTagName('head')[0];
-    let themeLink = this.document.getElementById(
-      this.THEME_LINK
-    ) as HTMLLinkElement;
+    let themeLink = this.document.getElementById(this.THEME_LINK) as HTMLLinkElement;
 
     if (themeLink) {
       themeLink.href = `${theme}-theme.css`;

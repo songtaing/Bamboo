@@ -1,23 +1,27 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from '../classes/base-service.class';
-import { IMenu } from '../interfaces/menu.interface';
-import { IMenuService } from '../interfaces/menu-service.interface';
-import { LogService } from './log.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { Inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { BaseService } from '../classes/base-service.class';
+import {
+  IBambooSharedLibConfig,
+  LIB_CONFIG,
+} from '../interfaces/bamboo-shared-lib-config.interface';
+import { IMenuService } from '../interfaces/menu-service.interface';
+import { IMenu } from '../interfaces/menu.interface';
+import { LogService } from './log.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService
-  extends BaseService<IMenu, number>
-  implements IMenuService
-{
+export class MenuService extends BaseService<IMenu, number> implements IMenuService {
   private _mockRepo: IMenu[] = [];
 
-  constructor(logService: LogService, http: HttpClient) {
-    super(logService, `${environment.apiDomainUri}/menus`, http);
+  constructor(
+    @Inject(LIB_CONFIG) protected override LIB_CONFIG: IBambooSharedLibConfig,
+    logService: LogService,
+    http: HttpClient
+  ) {
+    super(LIB_CONFIG, logService, `${LIB_CONFIG.environment.apiDomainUri}/menus`, http);
 
     this.logTraceFrame();
     this.generateMockRepo();

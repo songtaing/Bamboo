@@ -1,8 +1,8 @@
-import { LogLevels } from "../enums/log-level.enum";
+import { LogLevels } from '../../enums/log-level.enum';
 
 export interface IBambooPluginLog {
-    id: string;
-    timestamp: Date;
-    message: string;
-    logLevel: LogLevels;
+  id: string;
+  timestamp: Date;
+  message: string;
+  logLevel: LogLevels;
 }

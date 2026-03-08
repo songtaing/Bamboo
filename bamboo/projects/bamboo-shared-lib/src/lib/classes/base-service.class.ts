@@ -5,16 +5,19 @@ import { IPayload } from '../interfaces/payload.interface';
 import { IService } from '../interfaces/service.interface';
 import { LogService } from '../services/log.service';
 import { BaseRoot } from './base-root.class';
+import { IBambooSharedLibConfig } from '../interfaces/bamboo-shared-lib-config.interface';
 
-export abstract class BaseService<T, K>
-  extends BaseRoot
-  implements IService<T, K>
-{
+export abstract class BaseService<T, K> extends BaseRoot implements IService<T, K> {
   private _apiUri: string;
   private _http: HttpClient;
 
-  constructor(logService: LogService, apiUri: string, http: HttpClient) {
-    super(logService);
+  constructor(
+    LIB_CONFIG: IBambooSharedLibConfig,
+    logService: LogService,
+    apiUri: string,
+    http: HttpClient
+  ) {
+    super(LIB_CONFIG, logService);
     this.logTraceFrame();
 
     this._apiUri = apiUri;

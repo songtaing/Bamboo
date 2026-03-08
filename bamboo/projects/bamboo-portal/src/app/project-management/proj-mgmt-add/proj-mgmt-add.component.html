@@ -1,0 +1,33 @@
+@defer {
+<div class="flex-container-col container {{ currentTheme }}">
+  <h2 mat-dialog-title>Add New</h2>
+  <mat-dialog-content>
+    <form class="modal form" [formGroup]="addFormGroup">
+      <div class="flex-container-col">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Project Number</mat-label>
+          <input matInput formControlName="projectNumber" />
+        </mat-form-field>
+        <div class="flex-container-row">
+          <mat-form-field>
+            <mat-label>Primary Contact</mat-label>
+            <input matInput formControlName="primaryContactName" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Primary Phone</mat-label>
+            <input matInput formControlName="primaryContactPhone" />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button (click)="onAdd()">Add</button>
+  </mat-dialog-actions>
+</div>
+}

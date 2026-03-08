@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BaseComponent } from '../classes/base-component.class';
+import {
+  IBambooSharedLibConfig,
+  LIB_CONFIG,
+} from '../interfaces/bamboo-shared-lib-config.interface';
 import { ICacheService } from '../interfaces/cache-service.interface';
 import { CacheLocalStorageService } from './cache-local-storage.service';
 import { CacheSessionStorageService } from './cache-session-storage.service';
@@ -8,14 +12,14 @@ import { LogService } from './log.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CacheManagerService
-  extends BaseComponent
-  implements ICacheService
-{
+export class CacheManagerService extends BaseComponent implements ICacheService {
   private cache!: ICacheService;
 
-  constructor(logService: LogService) {
-    super(logService);
+  constructor(
+    @Inject(LIB_CONFIG) protected override LIB_CONFIG: IBambooSharedLibConfig,
+    logService: LogService
+  ) {
+    super(LIB_CONFIG, logService);
     this.logTraceFrame();
 
     this.cache = this.generateCacheService(logService);
@@ -26,12 +30,12 @@ export class CacheManagerService
 
     try {
       if (localStorage) {
-        return new CacheLocalStorageService(logService);
+        return new CacheLocalStorageService(this.LIB_CONFIG, logService);
       } else {
-        return new CacheSessionStorageService(logService);
+        return new CacheSessionStorageService(this.LIB_CONFIG, logService);
       }
     } catch {
-      return new CacheSessionStorageService(logService);
+      return new CacheSessionStorageService(this.LIB_CONFIG, logService);
     }
   }
 
