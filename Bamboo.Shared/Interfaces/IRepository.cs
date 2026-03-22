@@ -12,7 +12,7 @@ namespace Bamboo.Shared.Interfaces
         Task<IEnumerable<T>> GetAllAsync();
         Task<T?> GetByIdAsync(K id);
         Task<T?> UpdateAsync(T item);
-        Task<bool> UpdateRangeAsync(IEnumerable<T> items);
+        Task<DbSaveChangesResult> UpdateRangeAsync(IEnumerable<T> items);
         Task DeleteAsync(K id);
         Task DeleteAsync(T item);
         Task DeleteRangeAsync(Expression<Func<T, bool>> predicate);

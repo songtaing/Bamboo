@@ -10,6 +10,8 @@ namespace Bamboo.Infrastructure.Repositories
         private DbContext _dbContext;
         private DbSet<T> _dbSet;
 
+        public DbContext Context { get { return _dbContext; } }
+
         public Repository(DbContext context)
         {
             _dbContext = context ?? throw new ArgumentNullException(nameof(context));
@@ -99,9 +101,12 @@ namespace Bamboo.Infrastructure.Repositories
             return item;
         }
 
-        public async Task<bool> UpdateRangeAsync(IEnumerable<T> items)
+        public async Task<DbSaveChangesResult> UpdateRangeAsync(IEnumerable<T> items)
         {
-            throw new NotImplementedException();
+            if (items == null) throw new ArgumentNullException(nameof(items));
+
+            _dbSet.UpdateRange(items);
+            return await _dbContext.SaveChangesAsync();
         }
     }
 }
