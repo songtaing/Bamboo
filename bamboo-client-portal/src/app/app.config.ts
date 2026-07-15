@@ -19,7 +19,6 @@ import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { LogService } from './shared/services/log.service';
 import { MenuService } from './shared/services/menu.service';
 import { ThemeService } from './shared/services/theme.service';
-import Aura from '@primeng/themes/aura';
 
 export const appConfig: ApplicationConfig = {
   providers: [
