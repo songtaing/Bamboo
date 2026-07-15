@@ -1,7 +1,7 @@
 ﻿using Bamboo.Shared.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace Bamboo.Core.Services
+namespace Bamboo.Core.Common.Services
 {
     internal abstract class CommonService<T, K>(ILogger logger, IRepository<T, K> repository) : IService<T, K>
     {
