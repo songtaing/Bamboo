@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BaseComponent } from '../../shared/classes/base-component.class';
@@ -11,6 +11,7 @@ import { MenuService } from '../../shared/services/menu.service';
   standalone: true,
   imports: [],
   templateUrl: './main-sidenav.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main-sidenav.component.scss',
 })
 export class MainSidenavComponent extends BaseComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,6 +23,7 @@ import { ProjectListComponent } from '../project-list/project-list.component';
     ProjectListComponent,
   ],
   templateUrl: './proj-mgmt-dashboard.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './proj-mgmt-dashboard.component.scss',
 })
 export class ProjMgmtDashboardComponent extends BaseComponent {

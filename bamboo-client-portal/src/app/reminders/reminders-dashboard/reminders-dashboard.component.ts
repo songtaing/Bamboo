@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,6 +24,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
   ],
   templateUrl: './reminders-dashboard.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './reminders-dashboard.component.scss',
 })
 export class RemindersDashboardComponent extends BaseComponent {

@@ -5,7 +5,8 @@ import {
   Inject,
   Renderer2,
   ViewChild,
-  DOCUMENT
+  DOCUMENT,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -34,6 +35,7 @@ import { LoadingIndicatorComponent } from './widgets/loading-indicator/loading-i
     LoadingIndicatorComponent
 ],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss',
 })
 export class AppComponent extends BaseComponent {

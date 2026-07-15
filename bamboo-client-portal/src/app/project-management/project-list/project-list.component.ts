@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { IProjectManagementItem } from '../../shared/interfaces/project-management-item.interface';
@@ -10,6 +10,7 @@ import { ProjectManagementService } from '../../shared/services/project-manageme
   standalone: true,
   imports: [],
   templateUrl: './project-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './project-list.component.scss',
 })
 export class ProjectListComponent extends BaseComponent {

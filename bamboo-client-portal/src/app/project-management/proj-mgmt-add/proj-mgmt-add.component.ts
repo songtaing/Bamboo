@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -26,6 +26,7 @@ import { ProjectManagementService } from '../../shared/services/project-manageme
     ReactiveFormsModule,
   ],
   templateUrl: './proj-mgmt-add.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './proj-mgmt-add.component.scss',
 })
 export class ProjMgmtAddComponent extends BaseComponent {

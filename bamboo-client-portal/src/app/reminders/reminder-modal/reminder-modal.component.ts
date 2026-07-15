@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, effect, inject, model, OnInit } from '@angular/core';
+import { Component, effect, inject, model, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -48,6 +48,7 @@ import { DurationUnits } from '../../shared/enums/duration-units.enum';
     MatSelectModule,
   ],
   templateUrl: './reminder-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './reminder-modal.component.scss',
 })
 export class ReminderModalComponent extends BaseComponent implements OnInit {

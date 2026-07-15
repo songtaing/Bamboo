@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { BaseComponent } from '../shared/classes/base-component.class';
 import { LogService } from '../shared/services/log.service';
 import { ICarouselConfig } from './interfaces/carousel-config.interface';
@@ -8,6 +8,7 @@ import { ICarouselConfig } from './interfaces/carousel-config.interface';
   standalone: true,
   imports: [],
   templateUrl: './carousel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent extends BaseComponent implements OnInit {

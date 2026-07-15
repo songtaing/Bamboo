@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -22,6 +22,7 @@ import { ThemeService } from '../../shared/services/theme.service';
     MatToolbarModule,
   ],
   templateUrl: './main-header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main-header.component.scss',
 })
 export class MainHeaderComponent extends BaseComponent {

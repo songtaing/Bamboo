@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ILoadingIndicatorConfig } from '../../shared/interfaces/loading-indicator-config.interface';
 import { LoadingIndicatorTypes } from '../../shared/enums/loading-indicator-types.enum';
@@ -11,6 +11,7 @@ import { LogService } from '../../shared/services/log.service';
   standalone: true,
   imports: [MatProgressSpinnerModule, MatProgressBarModule],
   templateUrl: './loading-indicator.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './loading-indicator.component.scss',
 })
 export class LoadingIndicatorComponent extends BaseComponent {

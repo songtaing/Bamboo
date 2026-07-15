@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,6 +21,7 @@ import { NewsService } from '../services/news.service';
     CarouselComponent,
   ],
   templateUrl: './news-dashboard.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './news-dashboard.component.scss',
 })
 export class NewsDashboardComponent extends BaseComponent {
