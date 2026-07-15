@@ -12,10 +12,10 @@
     <mat-form-field>
       <mat-label>Category</mat-label>
       <mat-select formControlName="category">
-        @for(category of reminderCategories; track category) {
-        <mat-option [value]="category.categoryId">{{
-          category.categoryName
-        }}</mat-option>
+        @for (category of reminderCategories; track category) {
+          <mat-option [value]="category.categoryId">{{
+            category.categoryName
+          }}</mat-option>
         }
       </mat-select>
     </mat-form-field>
@@ -27,7 +27,7 @@
   </div>
   <div class="flex-container-row flex-form">
     <label for="startDate">{{ startDateLabelText }}</label>
-    <p-datepicker
+    <!-- <p-datepicker
       appendTo="body"
       [(ngModel)]="startDate"
       inputId="startDate"
@@ -35,12 +35,12 @@
       [showButtonBar]="true"
       [showTime]="isShowTime"
       hourFormat="12"
-    />
+    /> -->
   </div>
-  @if(isRange()) {
-  <div class="flex-container-row flex-form">
-    <label for="endDate">End Date</label>
-    <p-datepicker
+  @if (isRange()) {
+    <div class="flex-container-row flex-form">
+      <label for="endDate">End Date</label>
+      <!-- <p-datepicker
       appendTo="body"
       [(ngModel)]="endDate"
       inputId="endDate"
@@ -48,23 +48,24 @@
       [showButtonBar]="true"
       [showTime]="isShowTime"
       hourFormat="12"
-    />
-  </div>
-  } @if(isRecurring()) {
-  <div class="flex-container-row flex-form recurring-container">
-    <mat-form-field>
-      <mat-label>Frequency</mat-label>
-      <input matInput placeholder="Frequency" value="1" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Recurring Type</mat-label>
-      <mat-select>
-        @for(durUnit of durationUnits; track durUnit) {
-        <mat-option [value]="durUnit.value">{{ durUnit.key }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div>
+    /> -->
+    </div>
+  }
+  @if (isRecurring()) {
+    <div class="flex-container-row flex-form recurring-container">
+      <mat-form-field>
+        <mat-label>Frequency</mat-label>
+        <input matInput placeholder="Frequency" value="1" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Recurring Type</mat-label>
+        <mat-select>
+          @for (durUnit of durationUnits; track durUnit) {
+            <mat-option [value]="durUnit.value">{{ durUnit.key }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
   }
   <section>
     <h3>Form Value</h3>

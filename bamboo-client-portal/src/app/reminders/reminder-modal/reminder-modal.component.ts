@@ -20,7 +20,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastrService } from 'ngx-toastr';
-import { DatePickerModule } from 'primeng/datepicker';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { FormModes } from '../../shared/enums/form-modes.enum';
 import { LogService } from '../../shared/services/log.service';
@@ -43,7 +42,6 @@ import { DurationUnits } from '../../shared/enums/duration-units.enum';
     MatInputModule,
     ReactiveFormsModule,
     JsonPipe,
-    DatePickerModule,
     FormsModule,
     MatInputModule,
     MatSlideToggleModule,
