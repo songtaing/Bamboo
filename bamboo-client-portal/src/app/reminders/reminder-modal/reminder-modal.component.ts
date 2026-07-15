@@ -1,5 +1,12 @@
 import { JsonPipe } from '@angular/common';
-import { Component, effect, inject, model, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+  model,
+  OnInit,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,7 +14,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {
@@ -19,8 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ToastrService } from 'ngx-toastr';
 import { BaseComponent } from '../../shared/classes/base-component.class';
+import { DurationUnits } from '../../shared/enums/duration-units.enum';
 import { FormModes } from '../../shared/enums/form-modes.enum';
 import { LogService } from '../../shared/services/log.service';
 import { IReminderCategory } from '../interfaces/reminder-category.interface';
@@ -28,16 +34,13 @@ import { IReminderModalData } from '../interfaces/reminder-modal-data.interface'
 import { IReminder } from '../interfaces/reminder.interface';
 import { ReminderCategoryService } from '../services/reminder-category.service';
 import { ReminderService } from '../services/reminder.service';
-import { DurationUnits } from '../../shared/enums/duration-units.enum';
 
 @Component({
   selector: 'app-reminder-modal',
   standalone: true,
   imports: [
-    MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatDialogModule,
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
@@ -46,6 +49,7 @@ import { DurationUnits } from '../../shared/enums/duration-units.enum';
     MatInputModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   templateUrl: './reminder-modal.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -56,7 +60,6 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   readonly dialogRef = inject(MatDialogRef<ReminderModalComponent>);
   readonly reminderService = inject(ReminderService);
   readonly reminderCategoryService = inject(ReminderCategoryService);
-  readonly toastr = inject(ToastrService);
   readonly durationUnits = Object.entries(DurationUnits)
     .filter(([key, value]) => isNaN(Number(key)))
     .map(([key, value]) => ({
@@ -133,14 +136,14 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
     let valid: boolean = this.reminderForm.valid && this.startDate != undefined;
 
     if (!valid) {
-      this.toastr.show('Please fill in all required fields');
+      // this.toastr.show('Please fill in all required fields');
       return false;
     }
 
     if (this.isRange() && this.startDate && this.endDate) {
       valid = valid && this.startDate <= this.endDate;
       if (!valid) {
-        this.toastr.show('Start date has to be before the end date');
+        // this.toastr.show('Start date has to be before the end date');
         return false;
       }
     }

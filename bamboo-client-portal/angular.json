@@ -80,8 +80,7 @@
                 "input": "src/app/styles/yellow-theme.scss",
                 "inject": false,
                 "bundleName": "yellow-theme"
-              },
-              "node_modules/ngx-toastr/toastr.css"
+              }
             ],
             "scripts": []
           },

@@ -8,7 +8,6 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import { ToastrService } from 'ngx-toastr';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { CacheKeys } from '../../shared/enums/cache-keys.enum';
 import { IProjectManagementItem } from '../../shared/interfaces/project-management-item.interface';
@@ -44,7 +43,6 @@ export class ProjMgmtAddComponent extends BaseComponent {
     logService: LogService,
     private cache: CacheManagerService,
     private projService: ProjectManagementService,
-    private toastr: ToastrService
   ) {
     super(logService);
     this.logTraceFrame();
@@ -65,10 +63,10 @@ export class ProjMgmtAddComponent extends BaseComponent {
       this.item = this.addFormGroup.value as IProjectManagementItem;
 
       this.projService.add(this.item).subscribe((x) => {
-        this.toastr.success(
-          `Successfully added project "${this.item.name}."`,
-          'Added Project'
-        );
+        // this.toastr.success(
+        //   `Successfully added project "${this.item.name}."`,
+        //   'Added Project'
+        // );
         this.addFormGroup.reset();
       });
     }

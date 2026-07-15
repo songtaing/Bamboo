@@ -10,16 +10,11 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ToastrService } from 'ngx-toastr';
 import { DatePickerModule } from 'primeng/datepicker';
 import { BaseComponent } from '../../shared/classes/base-component.class';
 import { FormModes } from '../../shared/enums/form-modes.enum';
@@ -57,7 +52,6 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   readonly dialogRef = inject(MatDialogRef<ReminderModalComponent>);
   readonly reminderService = inject(ReminderService);
   readonly reminderCategoryService = inject(ReminderCategoryService);
-  readonly toastr = inject(ToastrService);
   readonly durationUnits = Object.entries(DurationUnits)
     .filter(([key, value]) => isNaN(Number(key)))
     .map(([key, value]) => ({
@@ -119,9 +113,7 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
   getTitle(): string {
     this.logTraceFrame();
 
-    return this.data.formMode === FormModes.Create
-      ? 'Create Reminder'
-      : 'Update Reminder';
+    return this.data.formMode === FormModes.Create ? 'Create Reminder' : 'Update Reminder';
   }
 
   handleInvalidForm(): void {
@@ -134,14 +126,14 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
     let valid: boolean = this.reminderForm.valid && this.startDate != undefined;
 
     if (!valid) {
-      this.toastr.show('Please fill in all required fields');
+      // this.toastr.show('Please fill in all required fields');
       return false;
     }
 
     if (this.isRange() && this.startDate && this.endDate) {
       valid = valid && this.startDate <= this.endDate;
       if (!valid) {
-        this.toastr.show('Start date has to be before the end date');
+        // this.toastr.show('Start date has to be before the end date');
         return false;
       }
     }
@@ -169,7 +161,6 @@ export class ReminderModalComponent extends BaseComponent implements OnInit {
       reminder.reminderId = this.data.reminder.reminderId;
     }
 
-    if (this.reminderService.validateReminder(reminder))
-      this.dialogRef.close({ reminder });
+    if (this.reminderService.validateReminder(reminder)) this.dialogRef.close({ reminder });
   }
 }

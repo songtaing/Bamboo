@@ -27,28 +27,10 @@
   </div>
   <div class="flex-container-row flex-form">
     <label for="startDate">{{ startDateLabelText }}</label>
-    <!-- <p-datepicker
-      appendTo="body"
-      [(ngModel)]="startDate"
-      inputId="startDate"
-      [showIcon]="true"
-      [showButtonBar]="true"
-      [showTime]="isShowTime"
-      hourFormat="12"
-    /> -->
   </div>
   @if (isRange()) {
     <div class="flex-container-row flex-form">
       <label for="endDate">End Date</label>
-      <!-- <p-datepicker
-      appendTo="body"
-      [(ngModel)]="endDate"
-      inputId="endDate"
-      [showIcon]="true"
-      [showButtonBar]="true"
-      [showTime]="isShowTime"
-      hourFormat="12"
-    /> -->
     </div>
   }
   @if (isRecurring()) {
