@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component,
   HostBinding,
@@ -27,13 +27,12 @@ import { LoadingIndicatorComponent } from './widgets/loading-indicator/loading-i
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
     RouterOutlet,
     MainHeaderComponent,
     MainSidenavComponent,
     MatSidenavModule,
-    LoadingIndicatorComponent,
-  ],
+    LoadingIndicatorComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
