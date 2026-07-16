@@ -8,7 +8,7 @@ describe('DockPaneComponent', () => {
   let component: DockPaneComponent;
   let fixture: ComponentFixture<DockPaneComponent>;
   let configMock: IDockPaneConfig = {
-    items: [],
+    // items: [],
     position: PrimeNGDockPositions.Left,
   };
   beforeEach(async () => {
